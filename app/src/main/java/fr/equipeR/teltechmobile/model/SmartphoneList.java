@@ -17,7 +17,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 /**
  * Classe <strong>singleton</strong> qui contient tout les smartphones.
