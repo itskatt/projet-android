@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SmartphoneList list = SmartphoneList.getInstance(this);
-        list.fetchSmartphones();
+        list.fetchSmartphones(System.out::println, System.err::println);
     }
 }
