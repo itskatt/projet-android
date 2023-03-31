@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EcranSmartphone"
+        android:orientation="horizontal"
+        android:background="#F1F2F3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="45dp"
+            android:gravity="center"
+            android:background="@drawable/shape"
+            android:id="@+id/phoneLayout"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/phoneName"
+                android:text="Iphone 13"
+                android:textSize="35sp"
+                android:textFontWeight="700"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/brandYear"
+                android:text="Apple - 2021"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/phoneImage"
+                android:layout_height="220dp"
+                android:layout_margin="25dp"
+                android:src="@drawable/image" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/phoneDescription"
+                android:text="@string/phone_description"
+                android:layout_margin="25dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:background="@drawable/border_text_description"
+                android:paddingLeft="15dp" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="200dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Ce que d'autres en pensent ..."
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="16sp"/>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:layout_marginBottom="20dp"
+                android:numStars="5"
+                android:rating="4"
+                android:isIndicator="true"
+                android:progressTint="@color/black"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:scaleX=".8"
+                android:scaleY=".8"
+                />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="200dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phonePriceHT"
+                    android:text="Prix HT : 864 €"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phonePriceTTC"
+                    android:text="Prix TTC : 1036.80 €"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phoneStock"
+                    android:layout_marginTop="13dp"
+                    android:textStyle="italic"
+                    android:text="En stock : 800"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:id="@+id/buttonAddToCart"
+                android:text="Ajouter au panier"
+                android:textColor="@color/black"
+                app:backgroundTint="#ffffff"
+                app:cornerRadius="8dp"
+                app:strokeWidth="1dp"
+                android:padding="20dp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
