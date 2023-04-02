@@ -6,10 +6,14 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EcranConfirmation extends AppCompatActivity {
 
@@ -17,12 +21,12 @@ public class EcranConfirmation extends AppCompatActivity {
     private TextView progressTextView;
     private Button purchaseButton;
     private Handler handler;
-    private Animation validationAnimation;
 
     private static final int PROGRESS_BAR_MAX = 100;
     private static final int PROGRESS_INCREMENT = 2;
 
     private TextView validation;
+    private ImageView logoValide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +36,11 @@ public class EcranConfirmation extends AppCompatActivity {
         validation = findViewById(R.id.validation);
         validation.setVisibility(View.GONE);
 
+        logoValide = findViewById(R.id.logoValide);
+        logoValide.setVisibility(View.GONE);
+
         progressBar = findViewById(R.id.progressBar);
         progressTextView = findViewById(R.id.textview);
-        purchaseButton = findViewById(R.id.purchase_button);
-        validationAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.validation_anim);
 
         progressBar.setMax(PROGRESS_BAR_MAX);
         progressBar.setProgress(0);
@@ -45,17 +50,10 @@ public class EcranConfirmation extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                progressBar.setVisibility(View.VISIBLE);
                 startProgressBar();
             }
         }, 500);
 
-        purchaseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showValidationAnimation();
-            }
-        });
     }
 
     private void startProgressBar() {
@@ -69,25 +67,25 @@ public class EcranConfirmation extends AppCompatActivity {
                 }
                 handler.post(() -> {
                     progressBar.setProgress(currentProgressCount);
-
                     progressTextView.setText(getString(R.string.progress_text, currentProgressCount));
                 });
+                if (currentProgressCount == PROGRESS_BAR_MAX) {
+                    runOnUiThread(() -> {
+                        validation.setVisibility(View.VISIBLE);
+                        logoValide.setVisibility(View.VISIBLE);
+                    });
+                    showValidationAnimation();
+                }
             }
         }).start();
     }
 
     private void showValidationAnimation() {
-        progressBar.clearAnimation();
-        progressBar.setVisibility(View.GONE);
-        progressTextView.setVisibility(View.GONE);
-        purchaseButton.setVisibility(View.GONE);
         validation.startAnimation(AnimationUtils.loadAnimation(EcranConfirmation.this, R.anim.validation_anim));
-//        sortie = findViewById(R.id.sortie);
-//        sortie.setOnClickListener(clic -> {
-//            sortie.startAnimation(AnimationUtils
-//                    .loadAnimation(MainActivity.this, R.anim.sortie));
-//            sortie.setVisibility(Button.INVISIBLE);
-//            buttonAnim.put(sortie,1);
-//        });
+        progressBar.startAnimation(AnimationUtils.loadAnimation(EcranConfirmation.this, R.anim.leaving_right_anim));
+        progressTextView.startAnimation(AnimationUtils.loadAnimation(EcranConfirmation.this, R.anim.leaving_left_anim));
+        logoValide.startAnimation(AnimationUtils.loadAnimation(EcranConfirmation.this, R.anim.arriving_anim));
+        progressBar.setVisibility(View.INVISIBLE);
+        progressTextView.setVisibility(View.INVISIBLE);
     }
 }

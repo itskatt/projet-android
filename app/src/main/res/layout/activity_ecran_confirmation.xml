@@ -29,22 +29,26 @@
         app:layout_constraintRight_toRightOf="@id/textview"
         app:layout_constraintLeft_toLeftOf="@id/textview" />
 
-    <Button
-        android:id="@+id/purchase_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Purchase"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
-        app:layout_constraintRight_toRightOf="@id/progressBar"
-        app:layout_constraintLeft_toLeftOf="@id/progressBar"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/validation"
-        android:text="Paiement validé ! Votre commande arrive"
+        android:text="Paiement validé ! Votre commande arrive ..."
         app:layout_constraintTop_toBottomOf="@id/progressBar"
         app:layout_constraintRight_toRightOf="@id/progressBar"
-        app:layout_constraintLeft_toLeftOf="@id/progressBar"/>
+        app:layout_constraintLeft_toLeftOf="@id/progressBar"
+        android:textSize="20sp"
+        android:textColor="#ff0000"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/logo_valide"
+        android:id="@+id/logoValide"
+        app:layout_constraintBottom_toTopOf="@id/validation"
+        app:layout_constraintRight_toRightOf="@id/validation"
+        app:layout_constraintLeft_toLeftOf="@id/validation"
+        android:layout_marginBottom="50dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
