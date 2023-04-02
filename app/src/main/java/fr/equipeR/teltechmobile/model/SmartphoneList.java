@@ -113,20 +113,17 @@ public class SmartphoneList {
         queue.add(jsonObjectRequest);
     }
 
-    @NonNull
-    public static SmartphoneList getInstance(Context context) {
+    public static void initialise(Context context) {
         if (instance == null) {
             instance = new SmartphoneList(context);
         }
-
-        return instance;
     }
 
     @NonNull
     public static SmartphoneList getInstance() throws IllegalStateException {
         if (instance == null) {
             throw new IllegalStateException("Cette classe n'a pas été correctement initialisée, " +
-                    "utilisez getInstance(Context) pour le premier appel.");
+                    "utilisez initialise(Context) avant le premier appel.");
         }
 
         return instance;
