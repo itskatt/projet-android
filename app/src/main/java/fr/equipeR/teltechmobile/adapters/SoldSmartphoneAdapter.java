@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.SmartphoneParentActivity;
 import fr.equipeR.teltechmobile.model.Smartphone;
@@ -58,6 +60,12 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
         RatingBar smartphoneRatingBar = layoutItem.findViewById(R.id.smartphoneRatingBar);
 
         Smartphone smartphone = smartphoneList.get(position);
+
+        String imageUrl = parentActivity.getContext()
+                .getString(R.string.smartphone_image_api_endpoint) + smartphone.getImageID();
+        Picasso.get()
+                .load(imageUrl)
+                .into(smartphoneImage);
 
         smartphoneName.setText(smartphone.getName());
         smartphoneBrandAndYear.setText(smartphone.getSupplierName() + " - " + smartphone.getYear());
