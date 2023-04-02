@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape"
     android:padding="24dp">
 
     <ImageView
@@ -13,7 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image" />
+        app:srcCompat="@drawable/image"
+        android:contentDescription="Iphone 14..." />
 
     <TextView
         android:id="@+id/smartphoneName"
@@ -72,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/smartphoneQuantity" />
 
     <RatingBar
-        android:id="@+id/ratingBar2"
+        android:id="@+id/smartphoneRatingBar"
         style="?android:attr/ratingBarStyleIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
