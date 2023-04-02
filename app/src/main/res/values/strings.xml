@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TelTechMobile</string>
+    <string name="progress_text">Paiement en cours : %d</string>
 </resources>
