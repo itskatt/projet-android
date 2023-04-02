@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import fr.equipeR.teltechmobile.R;
+
 /**
  * Classe <strong>singleton</strong> qui contient tout les smartphones.
  */
@@ -25,11 +27,13 @@ public class SmartphoneList {
     private final List<Smartphone> smartphones = new ArrayList<>();
     private final RequestQueue queue;
     private final String TAG = getClass().getName();
+    private final Context applicationContext;
 
     private static SmartphoneList instance;
 
     private SmartphoneList(Context context) {
-        queue = Volley.newRequestQueue(context.getApplicationContext());
+        applicationContext = context.getApplicationContext();
+        queue = Volley.newRequestQueue(applicationContext);
     }
 
     public int size() {
@@ -74,7 +78,7 @@ public class SmartphoneList {
      */
     public void fetchSmartphones(@NonNull Consumer<List<Smartphone>> onSmartphonesFetchedListener,
                                  @NonNull Consumer<VolleyError> onErrorListener) {
-        final String url = "https://tel.extracursus.live/api/public/articles.php";
+        final String url = applicationContext.getString(R.string.smartphones_api_endpoint);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url,
                 response -> {
                     Log.d(TAG, "fetchSmartphones: les smartphones ont été recuperés");
