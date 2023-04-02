@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TelTechMobile</string>
     <string name="phone_description"><![CDATA[L\'iPhone 13, annoncé le 14 septembre 2021, est le modèle central de la 15e itération du smartphone d\'Apple. Il est équipé d\'un écran OLED de 6,1 pouces 60 Hz, d\'un SoC Apple A15 Bionic compatible 5G (NR & Sub-6) et d\'un double capteur photo de 12+12 mégapixels (grand-angle et ultra grand-angle) avec OIS.]]></string>
+    <string name="VAR_ID">value</string>
 </resources>
