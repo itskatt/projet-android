@@ -1,7 +1,5 @@
 package fr.equipeR.teltechmobile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +11,13 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import fr.equipeR.teltechmobile.model.ShopCartPhones;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
 public class EcranSmartphone extends ShakeableActivity {
 
-    private int smartphoneId = -1;
+    private Smartphone smartphone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class EcranSmartphone extends ShakeableActivity {
         phonePriceTTC.setText("Prix TTC : " + smartphone.getPriceTax() + " €");
         phoneStock.setText("En stock : " + smartphone.getQuantity());
 
-        smartphoneId = smartphone.getId();
+        this.smartphone = smartphone;
 
         Button buttonAddToCart = findViewById(R.id.buttonAddToCart);
 
@@ -66,6 +65,11 @@ public class EcranSmartphone extends ShakeableActivity {
     private void addSmartphoneToCart(View event) {
 //        Intent intent = new Intent(getApplicationContext(), EcranPanier.class);
 //        intent.putExtra(getString(R.string.VAR_ID), smartphoneId);
+
+        if (!ShopCartPhones.getInstance().add(smartphone)){
+            Toast.makeText(getApplicationContext(), "L'article existe déja dans la panier", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Toast.makeText(getApplicationContext(), "L'article a été ajouté au panier.", Toast.LENGTH_SHORT).show();
     }
 }

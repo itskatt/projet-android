@@ -9,13 +9,23 @@ public class ShopCartPhones extends ArrayList<Smartphone> {
     private static HashMap<Smartphone, Integer> smartToQuant;
     private ShopCartPhones() {
         smartToQuant = new HashMap<>();
-        this.add(SmartphoneList.getInstance().get(0));
-        this.add(SmartphoneList.getInstance().get(1));
+//        this.add(SmartphoneList.getInstance().get(0));
+//        this.add(SmartphoneList.getInstance().get(1));
     }
     @Override
     public boolean add(Smartphone smartphone){
+        if (super.contains(smartphone)){
+            return false;
+        }
         super.add(smartphone);
         smartToQuant.put(smartphone, 1);
+        return true;
+    }
+
+
+    public boolean remove(Object smartphone){
+        super.remove(smartphone);
+        smartToQuant.remove(smartphone);
         return true;
     }
 

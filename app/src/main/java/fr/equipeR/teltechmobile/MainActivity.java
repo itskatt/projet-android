@@ -25,7 +25,8 @@ public class MainActivity extends ShakeableActivity implements SmartphoneParentA
         list.fetchSmartphones(this::onSmartphonesFetched, System.err::println);
 
         findViewById(R.id.cartIcon).setOnClickListener(v -> {
-            Toast.makeText(this, "Panier...", Toast.LENGTH_SHORT).show();
+            Intent intent=  new Intent(MainActivity.this, ShopCartActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -33,10 +34,6 @@ public class MainActivity extends ShakeableActivity implements SmartphoneParentA
         SoldSmartphoneAdapter adapter = new SoldSmartphoneAdapter(this);
         ListView soldSmartphoneList = findViewById(R.id.soldSmartphoneList);
         soldSmartphoneList.setAdapter(adapter);
-        panierTemp.setOnClickListener(view -> {
-            Intent intent=  new Intent(MainActivity.this, ShopCartActivity.class);
-            startActivity(intent);
-        });
     }
 
     @Override

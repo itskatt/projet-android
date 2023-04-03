@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.ShopCartActivity;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
@@ -54,6 +56,7 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
 
         Button plus = layoutItem.findViewById(R.id.plusButton);
         Button minus = layoutItem.findViewById(R.id.minusButton);
+        Button delete = layoutItem.findViewById(R.id.deleteButton);
 
         Smartphone phone = phones.get(position);
         //(3) : Renseignement des valeurs
@@ -75,6 +78,12 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         minus.setEnabled(false);
         minus.setOnClickListener(view -> {
             quantity.setText(quantButton(quantity.getText().toString(), minus, Action.MINUS, position));
+        });
+
+
+        delete.setOnClickListener(view -> {
+            phones.remove(phone);
+            notifyDataSetChanged();
         });
 
 
