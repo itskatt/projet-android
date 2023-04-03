@@ -14,7 +14,7 @@ import fr.equipeR.teltechmobile.adapters.SoldSmartphoneAdapter;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
-public class MainActivity extends AppCompatActivity implements SmartphoneParentActivity {
+public class MainActivity extends ShakeableActivity implements SmartphoneParentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
