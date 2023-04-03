@@ -59,6 +59,9 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         //(3) : Renseignement des valeurs
         name.setText(phone.getName());
         year.setText(phone.getYear()+"");
+        quantity.setText("x"+phones.getQuantity(phone));
+
+
         String imageUrl = activity.getContext()
                 .getString(R.string.smartphone_image_api_endpoint) + phone.getImageID();
         Picasso.get()
@@ -66,12 +69,12 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
                 .into(image);
 
         plus.setOnClickListener(view -> {
-            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.PLUS));
+            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.PLUS, position));
         });
 
         minus.setEnabled(false);
         minus.setOnClickListener(view -> {
-            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.MINUS));
+            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.MINUS, position));
         });
 
 
@@ -84,26 +87,34 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         return layoutItem; //On retourne l'item créé.
     }
 
-    private String quantButton(String content, Button minus, Action action){
-        String result = "";
+    /**
+     * gere l'evènement des boutons plus et moins
+     * @param content
+     * @param minus
+     * @param action
+     * @param position
+     * @return
+     */
+    private String quantButton(String content, Button minus, Action action, int position){
+        int result = 0;
         switch (action){
             case PLUS:
                 int plusModifs = Integer.parseInt(content.split("x")[1]) + 1;
                 minus.setEnabled(true);
-                result =  "" + plusModifs;
+                result = plusModifs;
                 break;
             case MINUS:
                 int minusModifs = Integer.parseInt(content.split("x")[1]) - 1;
                 if (minusModifs <= 1){
                     minus.setEnabled(false);
-                    result = "1";
+                    result = 1;
                 }
                 else {
-                    result = ""  + minusModifs;
+                    result = minusModifs;
                 }
-
                 break;
         }
+        phones.setQuantity(phones.get(position), result);
         return "x" + result;
     }
 
