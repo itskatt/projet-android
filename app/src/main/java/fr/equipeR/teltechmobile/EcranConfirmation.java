@@ -1,28 +1,15 @@
 package fr.equipeR.teltechmobile;
 
-import android.content.Context;
-import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorManager;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class EcranConfirmation extends AppCompatActivity {
+public class EcranConfirmation extends ShakeableActivity {
 
     /*
     Ecran de confirmation de commande, panier validé avec les animations
@@ -57,12 +44,7 @@ public class EcranConfirmation extends AppCompatActivity {
         progressTextView.setText("0");
 
         handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startProgressBar();
-            }
-        }, 500);
+        handler.postDelayed(this::startProgressBar, 500);
 
     }
 

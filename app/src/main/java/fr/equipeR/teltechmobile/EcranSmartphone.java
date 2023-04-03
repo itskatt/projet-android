@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
-public class EcranSmartphone extends AppCompatActivity {
+public class EcranSmartphone extends ShakeableActivity {
 
     private int smartphoneId = -1;
 

@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
 
 import fr.equipeR.teltechmobile.adapters.SoldSmartphoneAdapter;
