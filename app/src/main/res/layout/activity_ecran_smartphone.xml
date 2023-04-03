@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -9,56 +8,57 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".EcranSmartphone"
+        android:background="#F1F2F3"
         android:orientation="horizontal"
-        android:background="#F1F2F3">
+        tools:context=".EcranSmartphone">
 
         <LinearLayout
+            android:id="@+id/phoneLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="45dp"
             android:layout_marginRight="35dp"
-            android:layout_marginLeft="35dp"
             android:layout_marginBottom="45dp"
-            android:gravity="center"
             android:background="@drawable/shape"
-            android:id="@+id/phoneLayout"
-            android:orientation="vertical"
-            >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/phoneName"
-                android:text="Iphone 13"
-                android:textSize="35sp"
-                android:textFontWeight="700"
-                android:textColor="@color/black" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Iphone 13"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="35sp" />
+
+            <TextView
                 android:id="@+id/brandYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Apple - 2021"
                 android:textSize="20sp" />
 
             <ImageView
-                android:layout_width="match_parent"
                 android:id="@+id/phoneImage"
+                android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_margin="25dp"
                 android:src="@drawable/image" />
+
             <TextView
+                android:id="@+id/phoneDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/phoneDescription"
-                android:text="@string/phone_description"
                 android:layout_margin="25dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:justificationMode="inter_word"
                 android:background="@drawable/border_text_description"
-                android:paddingLeft="15dp" />
+                android:justificationMode="inter_word"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@string/phone_description"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <View
                 android:id="@+id/divider1"
@@ -71,23 +71,22 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="Ce que d'autres en pensent ..."
-                android:textColor="@color/black"
                 android:textAlignment="center"
-                android:textSize="16sp"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar"
                 android:layout_marginBottom="20dp"
-                android:numStars="5"
-                android:rating="4"
                 android:isIndicator="true"
+                android:numStars="5"
                 android:progressTint="@color/black"
-                style="?android:attr/ratingBarStyleIndicator"
+                android:rating="4"
                 android:scaleX=".8"
-                android:scaleY=".8"
-                />
+                android:scaleY=".8" />
 
             <View
                 android:id="@+id/divider2"
@@ -98,47 +97,47 @@
             <LinearLayout
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="20dp"
-                >
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/phonePriceHT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/phonePriceHT"
                     android:text="Prix HT : 864 €"
                     android:textSize="20sp" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/phonePriceTTC"
-                    android:text="Prix TTC : 1036.80 €"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Prix TTC : 1036.80 €"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:id="@+id/phoneStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
-                    android:textStyle="italic"
                     android:text="En stock : 800"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textColor="@color/black"/>
+                    android:textStyle="italic" />
             </LinearLayout>
 
             <Button
+                android:id="@+id/buttonAddToCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
-                android:id="@+id/buttonAddToCart"
+                android:padding="20dp"
                 android:text="Ajouter au panier"
                 android:textColor="@color/black"
                 app:backgroundTint="#ffffff"
                 app:cornerRadius="8dp"
-                app:strokeWidth="1dp"
-                android:padding="20dp"
-                />
+                app:strokeWidth="1dp" />
 
         </LinearLayout>
     </LinearLayout>

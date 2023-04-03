@@ -1,11 +1,11 @@
 package fr.equipeR.teltechmobile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements SmartphoneParentA
 
     @Override
     public void onSmartphoneClicked(Smartphone smartphone) {
-        Log.d("TAG", "onSmartphoneClicked: " + smartphone.getName());
+        Intent intent = new Intent(getApplicationContext(), EcranSmartphone.class);
+        intent.putExtra(getString(R.string.smartphone_id_key), smartphone.getId());
+        startActivity(intent);
     }
 
     @Override
