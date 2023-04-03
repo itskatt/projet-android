@@ -46,6 +46,8 @@ public class EcranSmartphone extends AppCompatActivity {
         String imageUrl = getString(R.string.smartphone_image_api_endpoint) + smartphone.getImageID();
         Picasso.get()
                 .load(imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
                 .into(phoneImage);
 
         phoneDescription.setText(smartphone.getDescription());
