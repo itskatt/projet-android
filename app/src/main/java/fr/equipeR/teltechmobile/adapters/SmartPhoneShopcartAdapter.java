@@ -13,7 +13,6 @@ import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.ShopCartActivity;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
 import fr.equipeR.teltechmobile.model.Smartphone;
-import fr.equipeR.teltechmobile.model.SmartphoneList;
 
 /**
  * Created by frallo on 03/02/2020.
@@ -66,6 +65,14 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
                 .load(imageUrl)
                 .into(image);
 
+        plus.setOnClickListener(view -> {
+            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.PLUS));
+        });
+
+        minus.setEnabled(false);
+        minus.setOnClickListener(view -> {
+            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.MINUS));
+        });
 
 
 //        price.setText(String.valueOf(phoneIDs.get(position).getPrice()) + " €");
@@ -77,7 +84,30 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         return layoutItem; //On retourne l'item créé.
     }
 
+    private String quantButton(String content, Button minus, Action action){
+        String result = "";
+        switch (action){
+            case PLUS:
+                int plusModifs = Integer.parseInt(content.split("x")[1]) + 1;
+                minus.setEnabled(true);
+                result =  "" + plusModifs;
+                break;
+            case MINUS:
+                int minusModifs = Integer.parseInt(content.split("x")[1]) - 1;
+                if (minusModifs <= 1){
+                    minus.setEnabled(false);
+                    result = "1";
+                }
+                else {
+                    result = ""  + minusModifs;
+                }
 
+                break;
+        }
+        return "x" + result;
+    }
+
+    enum Action{PLUS, MINUS}
 }
 
 
