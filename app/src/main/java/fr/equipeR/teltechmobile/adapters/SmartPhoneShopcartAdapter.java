@@ -53,6 +53,7 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         TextView name = layoutItem.findViewById(R.id.phoneName);
         TextView year = layoutItem.findViewById(R.id.brandYear);
         TextView quantity = layoutItem.findViewById(R.id.shopcartPhoneQuantity);
+        TextView price = layoutItem.findViewById(R.id.shopcartPrice);
 
         Button plus = layoutItem.findViewById(R.id.plusButton);
         Button minus = layoutItem.findViewById(R.id.minusButton);
@@ -63,7 +64,7 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         name.setText(phone.getName());
         year.setText(phone.getYear()+"");
         quantity.setText("x"+phones.getQuantity(phone));
-
+        price.setText(phone.getPriceNoTax()*phones.getQuantity(phone)+ "€");
 
         String imageUrl = activity.getContext()
                 .getString(R.string.smartphone_image_api_endpoint) + phone.getImageID();
@@ -73,18 +74,25 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
 
         plus.setOnClickListener(view -> {
             quantity.setText(quantButton(quantity.getText().toString(), minus, Action.PLUS, position));
+            updatePrice(price, phone, quantity.getText().toString());
         });
 
-        minus.setEnabled(false);
+        if (phones.getQuantity(phone) <= 1){
+            minus.setEnabled(false);
+        }
         minus.setOnClickListener(view -> {
             quantity.setText(quantButton(quantity.getText().toString(), minus, Action.MINUS, position));
+            updatePrice(price, phone, quantity.getText().toString());
         });
 
 
         delete.setOnClickListener(view -> {
             phones.remove(phone);
             notifyDataSetChanged();
+            updatePrice(price, phone, "x0");
         });
+
+        updatePrice(price, phone, quantity.getText().toString());
 
 
 //        price.setText(String.valueOf(phoneIDs.get(position).getPrice()) + " €");
@@ -94,6 +102,18 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
 //        layoutItem.setOnClickListener(v -> activity.onClickNom(phoneIDs.get(position)) );
 
         return layoutItem; //On retourne l'item créé.
+    }
+
+    private void updatePrice(TextView price, Smartphone phone, String quantity) {
+        double quant = Integer.parseInt(quantity.split("x")[1]);
+        Double result = phone.getPriceNoTax() * quant;
+        double doubleHT = Math.round(result * 100.0) / 100.0;
+        price.setText(""+ doubleHT + "€");
+        phones.updatePrice(phone, result);
+
+        result = phone.getPriceTax() * quant;
+        double doubleTTC = Math.round(result * 100.0) / 100.0;
+        phones.updateTaxedPrice(phone, doubleTTC);
     }
 
     /**
