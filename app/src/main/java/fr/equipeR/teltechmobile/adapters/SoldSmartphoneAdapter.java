@@ -79,6 +79,7 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
         Picasso.get()
                 .load(imageUrl)
                 .placeholder(randomPlaceholder())
+                .error(R.drawable.placeholder)
                 .into(smartphoneImage);
 
         smartphoneName.setText(smartphone.getName());
