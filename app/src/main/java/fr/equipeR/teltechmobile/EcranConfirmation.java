@@ -1,5 +1,6 @@
 package fr.equipeR.teltechmobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -81,4 +82,10 @@ public class EcranConfirmation extends ShakeableActivity {
         progressTextView.setVisibility(View.INVISIBLE);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }
