@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Random;
+
 import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.SmartphoneParentActivity;
 import fr.equipeR.teltechmobile.model.Smartphone;
@@ -20,6 +22,13 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
     private final SmartphoneList smartphoneList;
     private final LayoutInflater inflater;
     private final SmartphoneParentActivity parentActivity;
+    private final static int[] placeholders = {
+            R.drawable.placeholder,
+            R.drawable.placeholder1,
+            R.drawable.placeholder2,
+            R.drawable.placeholder3,
+    };
+    private final static Random random = new Random();
 
     public SoldSmartphoneAdapter(SmartphoneParentActivity parentActivity) {
         smartphoneList = SmartphoneList.getInstance();
@@ -40,6 +49,10 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
     @Override
     public long getItemId(int i) {
         return i;
+    }
+
+    private static int randomPlaceholder() {
+        return placeholders[random.nextInt(placeholders.length)];
     }
 
     @SuppressLint("SetTextI18n")
@@ -65,7 +78,7 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
                 .getString(R.string.smartphone_image_api_endpoint) + smartphone.getImageID();
         Picasso.get()
                 .load(imageUrl)
-                .placeholder(R.drawable.placeholder)
+                .placeholder(randomPlaceholder())
                 .into(smartphoneImage);
 
         smartphoneName.setText(smartphone.getName());
