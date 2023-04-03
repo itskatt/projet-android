@@ -16,6 +16,9 @@
         <activity
             android:name=".EcranSmartphone"
             android:exported="false" />
+        <activity android:name=".ShopCartActivity"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

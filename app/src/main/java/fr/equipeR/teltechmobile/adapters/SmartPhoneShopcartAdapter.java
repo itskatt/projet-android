@@ -3,33 +3,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.ShopCartActivity;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
+import fr.equipeR.teltechmobile.model.Smartphone;
+import fr.equipeR.teltechmobile.model.SmartphoneList;
 
 /**
  * Created by frallo on 03/02/2020.
  */
 public class SmartPhoneShopcartAdapter extends BaseAdapter {
-    private ShopCartPhones phoneIDs;
+    private ShopCartPhones phones;
     private LayoutInflater mInflater;  //Un mécanisme pour gérer l'affichage graphique depuis un layout XML
     private ShopCartActivity activity;
 
     public SmartPhoneShopcartAdapter(ShopCartActivity activity, ShopCartPhones items) {
         this.activity = activity;
-        this.phoneIDs = items;
+        this.phones = items;
         mInflater = LayoutInflater.from(activity.getContext());
     }
 
     public int getCount() {
-        return phoneIDs.size();
+        return phones.size();
     }
 
     public Object getItem(int position) {
-        return phoneIDs.get(position);
+        return phones.get(position);
     }
 
     public long getItemId(int position) {
@@ -43,12 +48,26 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         layoutItem = convertView == null ? mInflater.inflate(R.layout.shopcart_phone_item, parent, false) : convertView;
 
         //(2) : Récupération des TextView de notre layout
-//        TextView name = layoutItem.findViewById(R.id.pizzaName);
-//        TextView price = layoutItem.findViewById(R.id.pizzaPrice);
-//        ImageView image = layoutItem.findViewById(R.id.pizzaImage);
+        ImageView image = layoutItem.findViewById(R.id.shopcartPhoneImage);
+        TextView name = layoutItem.findViewById(R.id.phoneName);
+        TextView year = layoutItem.findViewById(R.id.brandYear);
+        TextView quantity = layoutItem.findViewById(R.id.shopcartPhoneQuantity);
 
+        Button plus = layoutItem.findViewById(R.id.plusButton);
+        Button minus = layoutItem.findViewById(R.id.minusButton);
+
+        Smartphone phone = phones.get(position);
         //(3) : Renseignement des valeurs
-//        name.setText(phoneIDs.get(position).getName());
+        name.setText(phone.getName());
+        year.setText(phone.getYear()+"");
+        String imageUrl = activity.getContext()
+                .getString(R.string.smartphone_image_api_endpoint) + phone.getImageID();
+        Picasso.get()
+                .load(imageUrl)
+                .into(image);
+
+
+
 //        price.setText(String.valueOf(phoneIDs.get(position).getPrice()) + " €");
 //        image.setBackground(phoneIDs.get(position).getDrawable());
 //
