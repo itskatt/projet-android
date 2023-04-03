@@ -15,7 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import fr.equipeR.teltechmobile.R;
@@ -25,6 +27,7 @@ import fr.equipeR.teltechmobile.R;
  */
 public class SmartphoneList {
     private final List<Smartphone> smartphones = new ArrayList<>();
+    private final Map<Integer, Smartphone> smartphoneMap = new HashMap<>();
     private final RequestQueue queue;
     private final String TAG = getClass().getName();
     private final Context applicationContext;
@@ -55,14 +58,7 @@ public class SmartphoneList {
      * @see Smartphone#getId()
      */
     public Smartphone getById(int id) {
-        // remplacer par un meilleur algo si les performances deviennent un problème
-        for (Smartphone smartphone : smartphones) {
-            if (smartphone.getId() == id) {
-                return smartphone;
-            }
-        }
-
-        return null;
+        return smartphoneMap.get(id);
     }
 
     public boolean isEmpty() {
@@ -86,22 +82,24 @@ public class SmartphoneList {
                         JSONArray smartphonesJson = response.getJSONArray("articles");
                         for (int i = 0; i < smartphonesJson.length(); i++) {
                             JSONObject smartphoneJson = smartphonesJson.getJSONObject(i);
-                            smartphones.add(
-                                    new SmartphoneBuilder()
-                                            .setId(smartphoneJson.getInt("article_id"))
-                                            .setName(smartphoneJson.getString("article_name"))
-                                            .setDescription(smartphoneJson.getString("description"))
-                                            .setRating(smartphoneJson.getInt("rating"))
-                                            .setYear(smartphoneJson.getInt("year"))
-                                            .setPriceTax(Double.parseDouble(smartphoneJson.getString("price_tax")))
-                                            .setImageID(smartphoneJson.getString("image"))
-                                            .setSupplierName(smartphoneJson.getString("supplier_name"))
-                                            .setQuantity(smartphoneJson.getInt("quantity"))
-                                            .createSmartphone()
-                            );
+                            Smartphone smartphone = new SmartphoneBuilder()
+                                    .setId(smartphoneJson.getInt("article_id"))
+                                    .setName(smartphoneJson.getString("article_name"))
+                                    .setDescription(smartphoneJson.getString("description"))
+                                    .setRating(smartphoneJson.getInt("rating"))
+                                    .setYear(smartphoneJson.getInt("year"))
+                                    .setPriceTax(Double.parseDouble(smartphoneJson.getString("price_tax")))
+                                    .setPriceNoTax(Double.parseDouble(smartphoneJson.getString("price_tax")) / 1.2d)
+                                    .setImageID(smartphoneJson.getString("image"))
+                                    .setSupplierName(smartphoneJson.getString("supplier_name"))
+                                    .setQuantity(smartphoneJson.getInt("quantity"))
+                                    .createSmartphone();
+                            smartphones.add(smartphone);
+                            smartphoneMap.put(smartphone.getId(), smartphone);
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "fetchSmartphones: erreur lors de la conversion du JSON", e);
+                        throw new RuntimeException(e);
                     }
 
                     Log.i(TAG, "fetchSmartphones: nombre de smartphones récup : " + smartphones.size());
