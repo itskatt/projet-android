@@ -94,6 +94,7 @@ public class SmartphoneList {
                                             .setRating(smartphoneJson.getInt("rating"))
                                             .setYear(smartphoneJson.getInt("year"))
                                             .setPriceTax(Double.parseDouble(smartphoneJson.getString("price_tax")))
+                                            .setPriceNoTax(Double.parseDouble(smartphoneJson.getString("price_tax")) / 1.2d)
                                             .setImageID(smartphoneJson.getString("image"))
                                             .setSupplierName(smartphoneJson.getString("supplier_name"))
                                             .setQuantity(smartphoneJson.getInt("quantity"))
@@ -102,6 +103,7 @@ public class SmartphoneList {
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "fetchSmartphones: erreur lors de la conversion du JSON", e);
+                        throw new RuntimeException(e);
                     }
 
                     Log.i(TAG, "fetchSmartphones: nombre de smartphones récup : " + smartphones.size());
