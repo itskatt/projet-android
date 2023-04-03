@@ -25,7 +25,7 @@ public class MainActivity extends ShakeableActivity implements SmartphoneParentA
         list.fetchSmartphones(this::onSmartphonesFetched, System.err::println);
 
         findViewById(R.id.cartIcon).setOnClickListener(v -> {
-            Toast.makeText(this, "Panier...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), PaymentInfoActivity.class));
         });
     }
 
