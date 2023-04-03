@@ -1,5 +1,12 @@
 package fr.equipeR.teltechmobile;
 
+import android.content.Context;
+import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -17,6 +24,9 @@ import java.util.Map;
 
 public class EcranConfirmation extends AppCompatActivity {
 
+    /*
+    Ecran de confirmation de commande, panier validé avec les animations
+     */
     private ProgressBar progressBar;
     private TextView progressTextView;
     private Button purchaseButton;
@@ -88,4 +98,5 @@ public class EcranConfirmation extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
         progressTextView.setVisibility(View.INVISIBLE);
     }
+
 }

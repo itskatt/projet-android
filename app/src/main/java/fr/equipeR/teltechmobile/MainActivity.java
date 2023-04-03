@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ShakeableActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
