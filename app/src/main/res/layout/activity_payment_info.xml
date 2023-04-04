@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F1F2F3"
     android:padding="24dp"
-    tools:context=".PaymentInfoActivity">
+    tools:context=".activity.PaymentInfoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inner"

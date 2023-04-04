@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile;
+package fr.equipeR.teltechmobile.activity;
 
 import android.content.Context;
 import android.hardware.Sensor;

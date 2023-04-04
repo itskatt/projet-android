@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile;
+package fr.equipeR.teltechmobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import fr.equipeR.teltechmobile.MainActivity;
+import fr.equipeR.teltechmobile.R;
 
 /**
  Ecran de confirmation de commande, panier validé avec les animations

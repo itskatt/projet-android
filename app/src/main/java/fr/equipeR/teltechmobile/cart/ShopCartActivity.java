@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile;
+package fr.equipeR.teltechmobile.cart;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import fr.equipeR.teltechmobile.adapters.SmartPhoneShopcartAdapter;
+import fr.equipeR.teltechmobile.activity.ChangingPriceActivity;
+import fr.equipeR.teltechmobile.activity.PaymentInfoActivity;
+import fr.equipeR.teltechmobile.R;
+import fr.equipeR.teltechmobile.activity.ShakeableActivity;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
 
 public class ShopCartActivity extends ShakeableActivity implements ChangingPriceActivity {

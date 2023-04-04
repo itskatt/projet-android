@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile;
+package fr.equipeR.teltechmobile.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;

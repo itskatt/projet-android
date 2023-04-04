@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile.adapters;
+package fr.equipeR.teltechmobile.cart;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +9,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import fr.equipeR.teltechmobile.R;
-import fr.equipeR.teltechmobile.ShopCartActivity;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
 import fr.equipeR.teltechmobile.model.Smartphone;
 

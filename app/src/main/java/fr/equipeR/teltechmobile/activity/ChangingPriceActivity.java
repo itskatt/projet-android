@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile;
+package fr.equipeR.teltechmobile.activity;
 
 public interface ChangingPriceActivity {
     void onHTPriceUpdated(double newPrice);

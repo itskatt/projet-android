@@ -1,10 +1,11 @@
-package fr.equipeR.teltechmobile;
+package fr.equipeR.teltechmobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fr.equipeR.teltechmobile.R;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
 
 /**

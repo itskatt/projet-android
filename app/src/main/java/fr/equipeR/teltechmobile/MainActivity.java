@@ -7,7 +7,11 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import fr.equipeR.teltechmobile.adapters.SoldSmartphoneAdapter;
+import fr.equipeR.teltechmobile.R;
+import fr.equipeR.teltechmobile.SoldSmartphoneAdapter;
+import fr.equipeR.teltechmobile.activity.EcranSmartphone;
+import fr.equipeR.teltechmobile.activity.ShakeableActivity;
+import fr.equipeR.teltechmobile.activity.SmartphoneParentActivity;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 

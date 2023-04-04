@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="#F1F2F3"
         android:orientation="horizontal"
-        tools:context=".EcranSmartphone">
+        tools:context=".activity.EcranSmartphone">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navbarFragment2"

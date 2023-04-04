@@ -1,4 +1,4 @@
-package fr.equipeR.teltechmobile.adapters;
+package fr.equipeR.teltechmobile;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.util.Random;
 
 import fr.equipeR.teltechmobile.R;
-import fr.equipeR.teltechmobile.SmartphoneParentActivity;
+import fr.equipeR.teltechmobile.activity.SmartphoneParentActivity;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 

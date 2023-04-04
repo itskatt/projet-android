@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
-import fr.equipeR.teltechmobile.ChangingPriceActivity;
+import fr.equipeR.teltechmobile.activity.ChangingPriceActivity;
 
 public class ShopCartPhones extends ArrayList<Smartphone> {
 

@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import fr.equipeR.teltechmobile.cart.ShopCartActivity;
+
 /**
  * Classe représentant un fragment de barre de navigation contenant un icône de panier.
  */
