@@ -8,6 +8,7 @@ import android.hardware.SensorManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +20,7 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
     private String cameraId;
     private boolean isFlashOn = false;
     private float lastX, lastY, lastZ;
-    private static final int SHAKE_THRESHOLD = 40;
+    private static final int SHAKE_THRESHOLD = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +65,6 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
                 turnOnFlash();
             }
         }
-        float acceleration = (float) Math.sqrt(x * x + y * y + z * z) - SensorManager.GRAVITY_EARTH;
-        if (acceleration > SHAKE_THRESHOLD) {
-            finish();
-        }
 
         lastX = x;
         lastY = y;
@@ -86,7 +83,7 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
                 isFlashOn = true;
             }
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Log.e(getClass().getName(), "turnOnFlash: ", e);
         }
     }
 
@@ -97,7 +94,7 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
                 isFlashOn = false;
             }
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Log.e(getClass().getName(), "turnOffFlash: ", e);
         }
     }
 }
