@@ -36,6 +36,7 @@ public class SmartphoneList {
 
     /**
      * Responsable de la création d'une liste de smartphones.
+     *
      * @param context de l'application
      */
     private SmartphoneList(Context context) {
@@ -129,6 +130,7 @@ public class SmartphoneList {
     /**
      * Initialise l'instance de la classe SmartphoneList en créant une nouvelle instance
      * si elle n'existe pas encore.
+     *
      * @param context Le contexte de l'application.
      */
     public static void initialise(Context context) {
@@ -140,6 +142,7 @@ public class SmartphoneList {
     /**
      * Récupère l'instance de la classe SmartphoneList. Si l'instance n'a pas été initialisée
      * avec la méthode initialise(Context), une IllegalStateException est levée.
+     *
      * @return L'instance de la classe SmartphoneList.
      * @throws IllegalStateException Si la méthode initialise(Context) n'a pas été appelée avant.
      */

@@ -91,8 +91,8 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
      * @param parent le parent de la vue
      * @return la vue à la position donnée
      */
-    @SuppressLint("SetTextI18n")
     @Override
+    @SuppressLint("SetTextI18n")
     public View getView(int position, View convertView, ViewGroup parent) {
         View layoutItem;
 
