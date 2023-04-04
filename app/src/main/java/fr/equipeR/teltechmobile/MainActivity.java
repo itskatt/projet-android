@@ -23,10 +23,6 @@ public class MainActivity extends ShakeableActivity implements SmartphoneParentA
 
         SmartphoneList list = SmartphoneList.getInstance();
         list.fetchSmartphones(this::onSmartphonesFetched, System.err::println);
-
-        findViewById(R.id.cartIcon).setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), PaymentInfoActivity.class));
-        });
     }
 
     private void onSmartphonesFetched(List<Smartphone> s) {
