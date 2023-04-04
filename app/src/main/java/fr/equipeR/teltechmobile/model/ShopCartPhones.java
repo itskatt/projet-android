@@ -30,6 +30,10 @@ public class ShopCartPhones extends ArrayList<Smartphone> {
         smartToQuant.put(smartphone, 1);
         smartToPrice.put(smartphone, smartphone.getPriceNoTax());
         smartToTaxedPrice.put(smartphone, smartphone.getPriceTax());
+
+        if (changingPriceActivity != null){
+            changingPriceActivity.onItemNumberUpdated(this.size());
+        }
         return true;
     }
 
@@ -37,6 +41,9 @@ public class ShopCartPhones extends ArrayList<Smartphone> {
     public boolean remove(Object smartphone){
         super.remove(smartphone);
         smartToQuant.remove(smartphone);
+        if (changingPriceActivity != null){
+            changingPriceActivity.onItemNumberUpdated(this.size());
+        }
         return true;
     }
 
@@ -52,7 +59,7 @@ public class ShopCartPhones extends ArrayList<Smartphone> {
         smartToPrice.put(smartphone, newPrice);
 
         if (this.changingPriceActivity != null){
-            changingPriceActivity.onHTPriceChanged(calcHTPrice());
+            changingPriceActivity.onHTPriceUpdated(calcHTPrice());
         }
     }
 
@@ -60,7 +67,7 @@ public class ShopCartPhones extends ArrayList<Smartphone> {
         smartToTaxedPrice.put(smartphone, newPrice);
 
         if (this.changingPriceActivity != null){
-            changingPriceActivity.onTTCPriceChanged(calcTTCPrice());
+            changingPriceActivity.onTTCPriceUpdated(calcTTCPrice());
         }
     }
 

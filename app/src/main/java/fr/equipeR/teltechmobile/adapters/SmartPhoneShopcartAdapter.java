@@ -73,15 +73,24 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
                 .into(image);
 
         plus.setOnClickListener(view -> {
-            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.PLUS, position));
+            quantity.setText(quantButton(quantity.getText().toString(), minus, plus, Action.PLUS, position, phone));
             updatePrice(price, phone, quantity.getText().toString());
         });
 
         if (phones.getQuantity(phone) <= 1){
             minus.setEnabled(false);
+        }else {
+            minus.setEnabled(true);
         }
+
+        if (phones.getQuantity(phone) >= phone.getQuantity()){
+            plus.setEnabled(false);
+        }else {
+            plus.setEnabled(true);
+        }
+
         minus.setOnClickListener(view -> {
-            quantity.setText(quantButton(quantity.getText().toString(), minus, Action.MINUS, position));
+            quantity.setText(quantButton(quantity.getText().toString(), minus, plus, Action.MINUS, position, phone));
             updatePrice(price, phone, quantity.getText().toString());
         });
 
@@ -101,6 +110,7 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
 //        name.setTag(position);
 //        layoutItem.setOnClickListener(v -> activity.onClickNom(phoneIDs.get(position)) );
 
+
         return layoutItem; //On retourne l'item créé.
     }
 
@@ -114,6 +124,7 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         result = phone.getPriceTax() * quant;
         double doubleTTC = Math.round(result * 100.0) / 100.0;
         phones.updateTaxedPrice(phone, doubleTTC);
+        notifyDataSetChanged();
     }
 
     /**
@@ -124,15 +135,22 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
      * @param position
      * @return
      */
-    private String quantButton(String content, Button minus, Action action, int position){
+    private String quantButton(String content, Button minus, Button plus, Action action, int position, Smartphone smartphone){
         int result = 0;
         switch (action){
             case PLUS:
-                int plusModifs = Integer.parseInt(content.split("x")[1]) + 1;
                 minus.setEnabled(true);
-                result = plusModifs;
+                int plusModifs = Integer.parseInt(content.split("x")[1]) + 1;
+                if (plusModifs > smartphone.getQuantity()){
+
+                    plus.setEnabled(false);
+                    result = smartphone.getQuantity();
+                }else {
+                    result = plusModifs;
+                }
                 break;
             case MINUS:
+                plus.setEnabled(true);
                 int minusModifs = Integer.parseInt(content.split("x")[1]) - 1;
                 if (minusModifs <= 1){
                     minus.setEnabled(false);
@@ -144,6 +162,7 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
                 break;
         }
         phones.setQuantity(phones.get(position), result);
+        notifyDataSetChanged();
         return "x" + result;
     }
 

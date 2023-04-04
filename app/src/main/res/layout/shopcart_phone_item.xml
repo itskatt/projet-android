@@ -124,6 +124,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:enabled="true"
                 android:id="@+id/plusButton"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"

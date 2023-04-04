@@ -16,7 +16,7 @@ public class Smartphone {
     private final double priceNoTax;
     private final String imageID;
     private final String supplierName;
-    private final int quantity;
+    private int quantity;
 
     protected Smartphone(int id, String name, String description, int rating, int year, double priceTax, double priceNoTax, String imageID, String supplierName, int quantity) {
         this.id = id;
@@ -107,5 +107,9 @@ public class Smartphone {
         result = 31 * result + supplierName.hashCode();
         result = 31 * result + quantity;
         return result;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
