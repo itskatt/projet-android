@@ -16,7 +16,7 @@ public class Smartphone {
     private final double priceNoTax;
     private final String imageID;
     private final String supplierName;
-    private final int quantity;
+    private int quantity;
 
     /**
      * Constructeur de la classe Smartphone.
@@ -187,4 +187,7 @@ public class Smartphone {
         return result;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

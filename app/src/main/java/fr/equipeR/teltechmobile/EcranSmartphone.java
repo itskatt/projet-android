@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import fr.equipeR.teltechmobile.model.ShopCartPhones;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
@@ -20,7 +21,7 @@ import fr.equipeR.teltechmobile.model.SmartphoneList;
  */
 public class EcranSmartphone extends ShakeableActivity {
 
-    /**
+    private Smartphone smartphone;
 
      * Cette méthode est appelée lorsque l'activité est créée. Elle récupère l'intent passé pour
      * lancer l'activité et récupère les données du smartphone correspondant à l'identifiant passé en
@@ -70,6 +71,8 @@ public class EcranSmartphone extends ShakeableActivity {
         phoneStock.setText("En stock : " + smartphone.getQuantity());
 
         // Configuration du bouton pour ajouter le smartphone au panier
+        this.smartphone = smartphone;
+
         Button buttonAddToCart = findViewById(R.id.buttonAddToCart);
         buttonAddToCart.setOnClickListener(this::addSmartphoneToCart);
     }
@@ -82,6 +85,11 @@ public class EcranSmartphone extends ShakeableActivity {
     private void addSmartphoneToCart(View event) {
 //        Intent intent = new Intent(getApplicationContext(), EcranPanier.class);
 //        intent.putExtra(getString(R.string.VAR_ID), smartphoneId);
+
+        if (!ShopCartPhones.getInstance().add(smartphone)){
+            Toast.makeText(getApplicationContext(), "L'article existe déja dans la panier", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Toast.makeText(getApplicationContext(), "L'article a été ajouté au panier.", Toast.LENGTH_SHORT).show();
     }
 }
