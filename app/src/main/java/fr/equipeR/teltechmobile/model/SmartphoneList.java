@@ -23,7 +23,7 @@ import java.util.function.Consumer;
 import fr.equipeR.teltechmobile.R;
 
 /**
- * Classe <strong>singleton</strong> qui contient tout les smartphones.
+ * Classe <strong>singleton</strong> qui contient tous les smartphones.
  */
 public class SmartphoneList {
     private final List<Smartphone> smartphones = new ArrayList<>();
@@ -34,11 +34,21 @@ public class SmartphoneList {
 
     private static SmartphoneList instance;
 
+    /**
+     * Responsable de la création d'une liste de smartphones.
+     * @param context de l'application
+     */
     private SmartphoneList(Context context) {
+        // Récupère le contexte de l'application
         applicationContext = context.getApplicationContext();
+        // Initialise la file d'attente des requêtes Volley
         queue = Volley.newRequestQueue(applicationContext);
     }
 
+
+    /**
+     * @return La taille de la liste des smartphones.
+     */
     public int size() {
         return smartphones.size();
     }
@@ -59,10 +69,6 @@ public class SmartphoneList {
      */
     public Smartphone getById(int id) {
         return smartphoneMap.get(id);
-    }
-
-    public boolean isEmpty() {
-        return smartphones.isEmpty();
     }
 
     /**
@@ -115,12 +121,23 @@ public class SmartphoneList {
         queue.add(jsonObjectRequest);
     }
 
+    /**
+     * Initialise l'instance de la classe SmartphoneList en créant une nouvelle instance
+     * si elle n'existe pas encore.
+     * @param context Le contexte de l'application.
+     */
     public static void initialise(Context context) {
         if (instance == null) {
             instance = new SmartphoneList(context);
         }
     }
 
+    /**
+     * Récupère l'instance de la classe SmartphoneList. Si l'instance n'a pas été initialisée
+     * avec la méthode initialise(Context), une IllegalStateException est levée.
+     * @return L'instance de la classe SmartphoneList.
+     * @throws IllegalStateException Si la méthode initialise(Context) n'a pas été appelée avant.
+     */
     @NonNull
     public static SmartphoneList getInstance() throws IllegalStateException {
         if (instance == null) {
