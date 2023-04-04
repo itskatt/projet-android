@@ -30,31 +30,67 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
     };
     private final static Random random = new Random();
 
+    /**
+     * Constructeur de la classe SoldSmartphoneAdapter.
+     *
+     * @param parentActivity l'activité parente
+     */
     public SoldSmartphoneAdapter(SmartphoneParentActivity parentActivity) {
         smartphoneList = SmartphoneList.getInstance();
         inflater = LayoutInflater.from(parentActivity.getContext());
         this.parentActivity = parentActivity;
     }
 
+    /**
+     * Retourne le nombre d'éléments dans la liste des smartphones vendus.
+     *
+     * @return le nombre d'éléments dans la liste
+     */
     @Override
     public int getCount() {
         return smartphoneList.size();
     }
 
+    /**
+     * Retourne l'élément à la position donnée dans la liste des smartphones vendus.
+     *
+     * @param i la position de l'élément
+     * @return l'élément à la position donnée
+     */
     @Override
     public Object getItem(int i) {
         return smartphoneList.get(i);
     }
 
+    /**
+     * Retourne l'ID de l'élément à la position donnée dans la liste des smartphones vendus.
+     *
+     * @param i la position de l'élément
+     * @return l'ID de l'élément à la position donnée
+     */
     @Override
     public long getItemId(int i) {
         return i;
     }
 
+    /**
+     * Cette méthode renvoie un entier aléatoire qui correspond à l'ID d'une image de placeholder.
+     * Les ID des placeholders sont stockés dans un tableau statique de la classe, placeholders.
+     *
+     * @return un entier aléatoire correspondant à l'ID d'une image de placeholder
+     */
     private static int randomPlaceholder() {
         return placeholders[random.nextInt(placeholders.length)];
     }
 
+    /**
+     * Retourne la vue à la position donnée dans la liste des smartphones vendus.
+     *
+     * @param position la position de la vue
+     * @param convertView la vue convertie
+     * @param parent le parent de la vue
+     * @return la vue à la position donnée
+     */
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -90,7 +126,6 @@ public class SoldSmartphoneAdapter extends BaseAdapter {
         smartphoneRatingBar.setRating(smartphone.getRating());
 
         layoutItem.setOnClickListener(view -> parentActivity.onSmartphoneClicked(smartphone));
-
         return layoutItem;
     }
 }
