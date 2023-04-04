@@ -23,4 +23,16 @@
     <string name="i_pay">Je paye</string>
     <string name="view_cart">Voir le panier</string>
     <string name="placeholder_short_desc">L\'iPhone 13, annoncé le 14 septembre 202…</string>
+    <string name="x">x</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="times1">x1</string>
+    <string name="quantit">Quantité</string>
+    <string name="price">prix</string>
+    <string name="empty_cart">Votre panier est vide</string>
+    <string name="my_cart">Mon panier</string>
+    <string name="placeholer_ht_price">Prix HT : ?$</string>
+    <string name="placeholder_price_ttc">Prix TTC : ?$</string>
+    <string name="order">Commander</string>
+    <string name="empty_cart_2">Vider le panier</string>
 </resources>

@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F2F3">
-
-
-    <!--todo : phonePanierView-->
 
     <TextView
         android:id="@+id/emptyText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Votre panier est vide"
+        android:text="@string/empty_cart"
         android:textSize="25sp"
 
         android:visibility="invisible"
@@ -28,7 +24,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="28dp"
-        android:text="Mon panier"
+        android:text="@string/my_cart"
         android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -56,7 +52,7 @@
         android:id="@+id/htPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prix HT : ?$"
+        android:text="@string/placeholer_ht_price"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textColor="@color/black"
@@ -70,7 +66,7 @@
         android:id="@+id/ttcPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prix TTC : ?$"
+        android:text="@string/placeholder_price_ttc"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -91,7 +87,7 @@
             android:id="@+id/command"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Commander" />
+            android:text="@string/order" />
 
         <Space
             android:layout_width="50dp"
@@ -102,7 +98,7 @@
             android:id="@+id/clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vider le panier" />
+            android:text="@string/empty_cart_2" />
     </LinearLayout>
 
 

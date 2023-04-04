@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/placeholder_phone_name"
                 android:textColor="@color/black"
-                android:textFontWeight="700"
+                android:textStyle="bold"
                 android:textSize="35sp" />
 
             <TextView
@@ -68,7 +68,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
                 android:background="@drawable/border_text_description"
-                android:justificationMode="inter_word"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:text="@string/phone_description"

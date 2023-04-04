@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:divider="@drawable/empty_tall_divider"
+    android:layout_marginBottom="20dp"
     android:background="@drawable/background_radius_white"
 
+    android:divider="@drawable/empty_tall_divider"
     android:gravity="center"
     android:orientation="horizontal"
     android:padding="10dp"
-    android:paddingLeft="0dp"
-    android:showDividers="middle"
-    android:layout_marginBottom="20dp"
-    >
-
+    android:paddingStart="0dp"
+    android:paddingEnd="0dp"
+    android:showDividers="middle">
 
 
     <ImageView
@@ -25,8 +24,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:layout_weight="1"
-        android:maxWidth="200dp"/>
--
+        android:contentDescription="@string/placeholder_phone_name"
+        android:maxWidth="200dp"
+        tools:ignore="RtlHardcoded" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,13 +50,13 @@
                     android:id="@+id/phoneName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PhoneName" />
+                    android:text="@string/placeholder_phone_name" />
 
                 <TextView
                     android:id="@+id/brandYear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="brandYear" />
+                    android:text="@string/placeholder_brand_year" />
             </LinearLayout>
 
             <TextView
@@ -63,28 +64,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
-                android:text="prix"
+                android:text="@string/price"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
-                style="@style/buttonStyle"
-                android:padding="0dp"
-                android:textColor="@color/black"
                 android:id="@+id/deleteButton"
+                style="@style/buttonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:gravity="center"
+                android:padding="0dp"
                 android:scaleX="0.6"
                 android:scaleY="0.6"
-                android:text="x"
+                android:text="@string/x"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
         <LinearLayout
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quantité"></TextView>
+                android:text="@string/quantit" />
 
             <Space
                 android:layout_width="10dp"
@@ -107,7 +107,7 @@
                 android:id="@+id/shopcartPhoneQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="x1">
+                android:text="@string/times1">
 
             </TextView>
 
@@ -116,32 +116,32 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                style="@style/buttonStyle"
-                android:padding="0dp"
-                android:textColor="@color/black"
-
                 android:id="@+id/minusButton"
+                style="@style/buttonStyle"
                 android:layout_width="40dp"
+
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="-"
-                android:textAlignment="center" />
+                android:padding="0dp"
+                android:text="@string/minus"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
 
             <Space
                 android:layout_width="10dp"
                 android:layout_height="wrap_content" />
 
             <Button
-                style="@style/buttonStyle"
-                android:padding="0dp"
-                android:textColor="@color/black"
-                android:enabled="true"
                 android:id="@+id/plusButton"
+                style="@style/buttonStyle"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
+                android:enabled="true"
                 android:gravity="center"
-                android:text="+"
-                android:textAlignment="center" />
+                android:padding="0dp"
+                android:text="@string/plus"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
 
         </LinearLayout>
     </LinearLayout>
