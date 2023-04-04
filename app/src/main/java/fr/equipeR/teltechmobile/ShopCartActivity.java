@@ -56,6 +56,12 @@ public class ShopCartActivity extends ShakeableActivity implements ChangingPrice
         articles.setAdapter(smartPhoneShopcartAdapter);
 
         commander.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), PaymentInfoActivity.class)));
+        vider.setOnClickListener(v -> {
+            phones.clear();
+            updateVisibilyties(View.INVISIBLE);
+            smartPhoneShopcartAdapter.notifyDataSetChanged();
+        });
+
     }
 
     public Context getContext() {

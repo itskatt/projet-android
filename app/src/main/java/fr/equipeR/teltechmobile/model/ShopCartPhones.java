@@ -96,5 +96,12 @@ public class ShopCartPhones extends ArrayList<Smartphone> {
         return singletonInstance;
     }
 
+    @Override
+    public void clear() {
+        super.clear();
+        smartToQuant.clear();
+        smartToPrice.clear();
+        smartToTaxedPrice.clear();
+    }
 
 }
