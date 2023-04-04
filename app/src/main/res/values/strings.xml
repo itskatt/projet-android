@@ -1,9 +1,26 @@
 <resources>
-    <string name="app_name">TelTechMobile</string>
+    <string name="app_name" translatable="false">TelTechMobile</string>
     <string name="progress_text">Paiement en cours : %d</string>
     <string name="phone_description"><![CDATA[L\'iPhone 13, annoncé le 14 septembre 2021, est le modèle central de la 15e itération du smartphone d\'Apple. Il est équipé d\'un écran OLED de 6,1 pouces 60 Hz, d\'un SoC Apple A15 Bionic compatible 5G (NR & Sub-6) et d\'un double capteur photo de 12+12 mégapixels (grand-angle et ultra grand-angle) avec OIS.]]></string>
-    <string name="VAR_ID">value</string>
-    <string name="smartphones_api_endpoint">https://tel.extracursus.live/api/public/articles.php</string>
-    <string name="smartphone_image_api_endpoint">https://tel.extracursus.live/image.php?id=</string>
-    <string name="smartphone_id_key">SMARTPHONE_ID</string>
+    <string name="VAR_ID" translatable="false">value</string>
+    <string name="smartphones_api_endpoint" translatable="false">https://tel.extracursus.live/api/public/articles.php</string>
+    <string name="smartphone_image_api_endpoint" translatable="false">https://tel.extracursus.live/image.php?id=</string>
+    <string name="smartphone_id_key" translatable="false">SMARTPHONE_ID</string>
+    <string name="cart_validation">Validation du panier…</string>
+    <string name="payment_ok">Paiement validé ! Vous allez recevoir votre commande d\'ici peu…</string>
+    <string name="payment_ok_logo_desc">Le paiement est validé</string>
+    <string name="placeholder_phone_name">Iphone 13</string>
+    <string name="placeholder_brand_year">Apple - 2021</string>
+    <string name="what_others_think">Ce que d\'autres en pensent …</string>
+    <string name="placeholder_price_no_tax">Prix HT : 864 €</string>
+    <string name="placeholder_price_tax">Prix TTC : 1036.80 €</string>
+    <string name="placeholer_stock">En stock : 800</string>
+    <string name="add_to_cart">Ajouter au panier</string>
+    <string name="confirm_infos">Confirmation de vos informations</string>
+    <string name="name">Nom</string>
+    <string name="firstname">Prénom</string>
+    <string name="shipping_address">Adresse de livraison</string>
+    <string name="i_pay">Je paye</string>
+    <string name="view_cart">Voir le panier</string>
+    <string name="placeholder_short_desc">L\'iPhone 13, annoncé le 14 septembre 202…</string>
 </resources>
