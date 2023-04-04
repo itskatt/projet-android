@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -33,7 +34,9 @@
         android:id="@+id/validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paiement validé ! Votre commande arrive..."
+        android:text="Paiement validé ! Vous allez recevoir votre commande d'ici peu..."
+        android:textAlignment="center"
+        android:lineHeight="27sp"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@id/progressBar"
