@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Validation du panier ..."
-        android:id="@+id/textview"
+        android:text="Validation du panier..."
+        android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -25,30 +26,32 @@
         android:layout_height="50dp"
         android:max="100"
         android:progress="0"
-        app:layout_constraintTop_toBottomOf="@id/textview"
+        app:layout_constraintLeft_toLeftOf="@id/textview"
         app:layout_constraintRight_toRightOf="@id/textview"
-        app:layout_constraintLeft_toLeftOf="@id/textview" />
+        app:layout_constraintTop_toBottomOf="@id/textview" />
 
     <TextView
+        android:id="@+id/validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/validation"
-        android:text="Paiement validé ! Votre commande arrive ..."
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
-        app:layout_constraintRight_toRightOf="@id/progressBar"
-        app:layout_constraintLeft_toLeftOf="@id/progressBar"
+        android:text="Paiement validé ! Vous allez recevoir votre commande d'ici peu..."
+        android:textAlignment="center"
+        android:lineHeight="27sp"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:textColor="#ff0000"/>
+        app:layout_constraintLeft_toLeftOf="@id/progressBar"
+        app:layout_constraintRight_toRightOf="@id/progressBar"
+        app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
     <ImageView
+        android:id="@+id/logoValide"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:layout_marginBottom="50dp"
         android:src="@drawable/logo_valide"
-        android:id="@+id/logoValide"
         app:layout_constraintBottom_toTopOf="@id/validation"
-        app:layout_constraintRight_toRightOf="@id/validation"
         app:layout_constraintLeft_toLeftOf="@id/validation"
-        android:layout_marginBottom="50dp" />
+        app:layout_constraintRight_toRightOf="@id/validation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

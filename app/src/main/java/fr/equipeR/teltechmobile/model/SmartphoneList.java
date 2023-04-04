@@ -80,6 +80,11 @@ public class SmartphoneList {
      */
     public void fetchSmartphones(@NonNull Consumer<List<Smartphone>> onSmartphonesFetchedListener,
                                  @NonNull Consumer<VolleyError> onErrorListener) {
+        if (!isEmpty()) {
+            smartphones.clear();
+            smartphoneMap.clear();
+        }
+
         final String url = applicationContext.getString(R.string.smartphones_api_endpoint);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url,
                 response -> {
