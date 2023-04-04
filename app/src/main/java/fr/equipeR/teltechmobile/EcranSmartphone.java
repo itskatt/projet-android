@@ -14,21 +14,34 @@ import com.squareup.picasso.Picasso;
 import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
+/**
+
+ * Activité qui affiche les détails d'un smartphone sélectionné et permet de l'ajouter au panier
+ */
 public class EcranSmartphone extends ShakeableActivity {
 
-    private int smartphoneId = -1;
+    /**
 
+     * Cette méthode est appelée lorsque l'activité est créée. Elle récupère l'intent passé pour
+     * lancer l'activité et récupère les données du smartphone correspondant à l'identifiant passé en
+     * extra. Elle remplit ensuite les éléments graphiques de l'interface avec les données du smartphone.
+     * Elle configure le bouton pour ajouter le smartphone au panier.
+     *
+     * @param savedInstanceState L'état de l'instance précédente de cette activité, s'il y en a un.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecran_smartphone);
 
+        // Récupération de l'intent et du smartphone correspondant à l'identifiant passé en extra
         Intent intent = getIntent();
         if (intent == null) return;
 
         Smartphone smartphone = SmartphoneList.getInstance()
                 .getById(intent.getExtras().getInt(getString(R.string.smartphone_id_key)));
 
+        // Récupération des éléments graphiques de l'interface
         TextView phoneName = findViewById(R.id.phoneName);
         TextView brandYear = findViewById(R.id.brandYear);
         ImageView phoneImage = findViewById(R.id.phoneImage);
@@ -38,6 +51,7 @@ public class EcranSmartphone extends ShakeableActivity {
         TextView phonePriceTTC = findViewById(R.id.phonePriceTTC);
         TextView phoneStock = findViewById(R.id.phoneStock);
 
+        // Remplissage des éléments graphiques avec les données du smartphone
         phoneName.setText(smartphone.getName());
         brandYear.setText(smartphone.getYear() + " - " + smartphone.getSupplierName());
 
@@ -54,13 +68,16 @@ public class EcranSmartphone extends ShakeableActivity {
         phonePriceTTC.setText("Prix TTC : " + smartphone.getPriceTax() + " €");
         phoneStock.setText("En stock : " + smartphone.getQuantity());
 
-        smartphoneId = smartphone.getId();
-
+        // Configuration du bouton pour ajouter le smartphone au panier
         Button buttonAddToCart = findViewById(R.id.buttonAddToCart);
-
         buttonAddToCart.setOnClickListener(this::addSmartphoneToCart);
     }
 
+    /**
+     * Méthode appelée lorsqu'on appuie sur le bouton "Ajouter au panier"
+     *
+     * @param event L'événement de clic sur le bouton
+     */
     private void addSmartphoneToCart(View event) {
 //        Intent intent = new Intent(getApplicationContext(), EcranPanier.class);
 //        intent.putExtra(getString(R.string.VAR_ID), smartphoneId);
