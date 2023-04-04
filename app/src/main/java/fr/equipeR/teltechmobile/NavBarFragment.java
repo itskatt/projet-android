@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 /**
-
-  * Classe représentant un fragment de barre de navigation contenant un icône de panier.
+ * Classe représentant un fragment de barre de navigation contenant un icône de panier.
  */
 public class NavBarFragment extends Fragment {
 
@@ -23,7 +22,6 @@ public class NavBarFragment extends Fragment {
     }
 
     /**
-     *
      * Méthode appelée lors de la création de l'activité contenant le fragment.
      *
      * @param savedInstanceState état enregistré de l'activité
@@ -34,7 +32,6 @@ public class NavBarFragment extends Fragment {
     }
 
     /**
-     *
      * Méthode appelée lorsque la vue associée au fragment a été créée.
      *
      * @param view vue associée au fragment
@@ -44,13 +41,10 @@ public class NavBarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.cartIcon).setOnClickListener(v -> {
-            startActivity(new Intent(requireActivity().getApplicationContext(), PaymentInfoActivity.class));
-        });
+        view.findViewById(R.id.cartIcon).setOnClickListener(v -> startActivity(new Intent(requireActivity().getApplicationContext(), PaymentInfoActivity.class)));
     }
 
     /**
-     *
      * Méthode appelée pour créer et retourner la vue associée au fragment.
      *
      * @param inflater objet permettant de créer la vue à partir d'un layout XML

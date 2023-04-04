@@ -16,7 +16,6 @@ import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
 /**
-
  * Activité qui affiche les détails d'un smartphone sélectionné et permet de l'ajouter au panier
  */
 public class EcranSmartphone extends ShakeableActivity {

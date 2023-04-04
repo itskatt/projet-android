@@ -101,7 +101,6 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
     }
 
     /**
-     *
      *  Allume le flash de la caméra si possible.
      *  Si l'accès à la caméra est autorisé et qu'une caméra est disponible, cette méthode allume le flash.
      *  Sinon, elle lance une exception CameraAccessException.
@@ -118,7 +117,6 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
     }
 
     /**
-     *
      * Éteint le flash de la caméra si possible.
      * Si l'accès à la caméra est autorisé et qu'une caméra est disponible, cette méthode éteint le flash.
      * Sinon, elle lance une exception CameraAccessException.

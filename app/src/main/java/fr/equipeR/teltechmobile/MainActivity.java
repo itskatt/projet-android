@@ -12,7 +12,6 @@ import fr.equipeR.teltechmobile.model.Smartphone;
 import fr.equipeR.teltechmobile.model.SmartphoneList;
 
 /**
- *
  * Activité principale de l'application.
  * Elle hérite de ShakeableActivity, ce qui permet de détecter un événement de secousse de l'appareil.
  * Elle implémente SmartphoneParentActivity, ce qui permet de gérer les événements de clics sur les éléments de la liste.
@@ -20,7 +19,6 @@ import fr.equipeR.teltechmobile.model.SmartphoneList;
 public class MainActivity extends ShakeableActivity implements SmartphoneParentActivity {
 
     /**
-     *
      * Méthode appelée à la création de l'activité.
      * Initialise la vue en associant le layout activity_main.xml à cette activité.
      * Initialise la liste de smartphones de la classe SmartphoneList en la récupérant depuis la source de données externe.
