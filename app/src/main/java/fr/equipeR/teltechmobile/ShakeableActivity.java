@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Cette classe abstraite étend la classe AppCompatActivity et implémente SensorEventListener.
- * Elle fournit une fonctionnalité permettant de déclencher l'activation/désactivation du flash de la caméra du téléphone en secouant le téléphone.
- * Elle fournit également une fonctionnalité permettant de terminer l'activité en cas de secousse violente.
+ * Elle fournit une fonctionnalité permettant de déclencher l'activation/désactivation du flash de
+ * la caméra du téléphone en secouant le téléphone.
  */
 public abstract class ShakeableActivity  extends AppCompatActivity implements SensorEventListener {
 
@@ -26,6 +26,8 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
     private boolean isFlashOn = false;
     private float lastX, lastY, lastZ;
     private static final int SHAKE_THRESHOLD = 20;
+    private static final int DEBOUNCE_TIME_MILLIS = 1000;
+    private long lastTimeFlashlightToggled = -1;
 
     /**
      * Appelé lors de la création de l'activité. Initialise les capteurs et la caméra du téléphone.
@@ -80,6 +82,10 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
         float deltaZ = Math.abs(lastZ - z);
 
         if (deltaX > SHAKE_THRESHOLD || deltaY > SHAKE_THRESHOLD || deltaZ > SHAKE_THRESHOLD) {
+            if ((System.currentTimeMillis() - lastTimeFlashlightToggled) < DEBOUNCE_TIME_MILLIS)
+                return;
+
+            lastTimeFlashlightToggled = System.currentTimeMillis();
             if (isFlashOn) {
                 turnOffFlash();
             } else {
