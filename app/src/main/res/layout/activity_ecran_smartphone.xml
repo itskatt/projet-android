@@ -59,8 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_margin="25dp"
-                android:src="@drawable/placeholder"
-                android:contentDescription="@string/placeholder_phone_name" />
+                android:contentDescription="@string/placeholder_phone_name"
+                android:src="@drawable/placeholder" />
 
             <TextView
                 android:id="@+id/phoneDescription"
@@ -143,16 +143,12 @@
 
             <Button
                 android:id="@+id/buttonAddToCart"
+                style="@style/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
-                android:padding="20dp"
-                android:text="@string/add_to_cart"
-                android:textColor="@color/black"
-                app:backgroundTint="#ffffff"
-                app:cornerRadius="8dp"
-                app:strokeWidth="1dp" />
+                android:text="@string/add_to_cart" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

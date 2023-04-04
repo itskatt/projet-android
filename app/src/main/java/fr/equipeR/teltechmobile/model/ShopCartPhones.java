@@ -8,7 +8,7 @@ import fr.equipeR.teltechmobile.ChangingPriceActivity;
 
 public class ShopCartPhones extends ArrayList<Smartphone> {
 
-    private static ShopCartPhones singletonInstance = new ShopCartPhones();
+    private static final ShopCartPhones singletonInstance = new ShopCartPhones();
     private static HashMap<Smartphone, Integer> smartToQuant;
     private static HashMap<Smartphone, Double> smartToPrice;
     private static HashMap<Smartphone, Double> smartToTaxedPrice;

@@ -6,7 +6,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 /**
  *
- * Activité permettant de saisir les informations de paiement et de les vérifier avant de passer à l'écran de confirmation.
+ * Activité permettant de saisir les informations de paiement et de les vérifier avant de passer à
+ * l'écran de confirmation.
  */
 public class PaymentInfoActivity extends ShakeableActivity {
 

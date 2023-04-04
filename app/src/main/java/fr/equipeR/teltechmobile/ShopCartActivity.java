@@ -1,9 +1,7 @@
 package fr.equipeR.teltechmobile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.opengl.Visibility;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,17 +11,13 @@ import android.widget.TextView;
 import fr.equipeR.teltechmobile.adapters.SmartPhoneShopcartAdapter;
 import fr.equipeR.teltechmobile.model.ShopCartPhones;
 
-public class ShopCartActivity extends AppCompatActivity implements ChangingPriceActivity{
+public class ShopCartActivity extends ShakeableActivity implements ChangingPriceActivity {
 
     ListView articles;
     TextView HTPrice;
     TextView TTCPrice;
-
-
     Button commander;
-
     Button vider;
-
     TextView emptyText;
 
     private static int articleVisibility = View.INVISIBLE;
@@ -47,8 +41,6 @@ public class ShopCartActivity extends AppCompatActivity implements ChangingPrice
         emptyText = findViewById(R.id.emptyText);
 
 
-
-
 //        SmartphoneList.initialise(this);
         ShopCartPhones phones = ShopCartPhones.getInstance();
         phones.callWhenPriceChanging(this);
@@ -61,8 +53,9 @@ public class ShopCartActivity extends AppCompatActivity implements ChangingPrice
 
 
         SmartPhoneShopcartAdapter smartPhoneShopcartAdapter = new SmartPhoneShopcartAdapter(this, phones);
-        SmartPhoneShopcartAdapter adapter = smartPhoneShopcartAdapter;
-        articles.setAdapter(adapter);
+        articles.setAdapter(smartPhoneShopcartAdapter);
+
+        commander.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), PaymentInfoActivity.class)));
     }
 
     public Context getContext() {
@@ -71,27 +64,27 @@ public class ShopCartActivity extends AppCompatActivity implements ChangingPrice
 
     @Override
     public void onHTPriceUpdated(double newPrice) {
-        newPrice = Math.round(newPrice*1000.0)/1000.0;
-        HTPrice.setText("Tarif hors taxes : "+newPrice + " €");
+        newPrice = Math.round(newPrice * 1000.0) / 1000.0;
+        HTPrice.setText("Tarif hors taxes : " + newPrice + " €");
 
     }
 
     @Override
     public void onTTCPriceUpdated(double newPrice) {
-        newPrice = Math.round(newPrice*1000.0)/1000.0;
-        TTCPrice.setText("Tarif TTC : "+newPrice + " €");
+        newPrice = Math.round(newPrice * 1000.0) / 1000.0;
+        TTCPrice.setText("Tarif TTC : " + newPrice + " €");
     }
 
     @Override
     public void onItemNumberUpdated(double newNumber) {
-        if (newNumber == 0){
+        if (newNumber == 0) {
             updateVisibilyties(View.INVISIBLE);
             return;
         }
         updateVisibilyties(View.VISIBLE);
     }
 
-    public void updateVisibilyties(int visibility){
+    public void updateVisibilyties(int visibility) {
 
         articleVisibility = visibility;
         HTPriceVisibility = visibility;

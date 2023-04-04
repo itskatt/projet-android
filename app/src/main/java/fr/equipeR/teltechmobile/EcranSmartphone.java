@@ -23,6 +23,7 @@ public class EcranSmartphone extends ShakeableActivity {
 
     private Smartphone smartphone;
 
+    /**
      * Cette méthode est appelée lorsque l'activité est créée. Elle récupère l'intent passé pour
      * lancer l'activité et récupère les données du smartphone correspondant à l'identifiant passé en
      * extra. Elle remplit ensuite les éléments graphiques de l'interface avec les données du smartphone.
@@ -86,7 +87,7 @@ public class EcranSmartphone extends ShakeableActivity {
 //        Intent intent = new Intent(getApplicationContext(), EcranPanier.class);
 //        intent.putExtra(getString(R.string.VAR_ID), smartphoneId);
 
-        if (!ShopCartPhones.getInstance().add(smartphone)){
+        if (!ShopCartPhones.getInstance().add(smartphone)) {
             Toast.makeText(getApplicationContext(), "L'article existe déja dans la panier", Toast.LENGTH_SHORT).show();
             return;
         }

@@ -41,7 +41,7 @@ public class NavBarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.cartIcon).setOnClickListener(v -> startActivity(new Intent(requireActivity().getApplicationContext(), PaymentInfoActivity.class)));
+        view.findViewById(R.id.cartIcon).setOnClickListener(v -> startActivity(new Intent(requireActivity().getApplicationContext(), ShopCartActivity.class)));
     }
 
     /**
