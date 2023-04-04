@@ -7,55 +7,15 @@ package fr.equipeR.teltechmobile.model;
  * @see SmartphoneBuilder
  */
 public class Smartphone {
-
-    /**
-     * L'ID du smartphone.
-     */
     private final int id;
-
-    /**
-     * Le nom du smartphone.
-     */
     private final String name;
-
-    /**
-     * La description du smartphone.
-     */
     private final String description;
-
-    /**
-     * La note du smartphone.
-     */
     private final int rating;
-
-    /**
-     * L'année de sortie du smartphone.
-     */
     private final int year;
-
-    /**
-     * Le prix du smartphone avec taxe.
-     */
     private final double priceTax;
-
-    /**
-     * Le prix du smartphone sans taxe.
-     */
     private final double priceNoTax;
-
-    /**
-     * L'ID de l'image du smartphone.
-     */
     private final String imageID;
-
-    /**
-     * Le nom du fournisseur du smartphone.
-     */
     private final String supplierName;
-
-    /**
-     * La quantité de smartphones en stock.
-     */
     private final int quantity;
 
     /**

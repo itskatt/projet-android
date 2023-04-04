@@ -12,6 +12,11 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Cette classe abstraite étend la classe AppCompatActivity et implémente SensorEventListener.
+ * Elle fournit une fonctionnalité permettant de déclencher l'activation/désactivation du flash de la caméra du téléphone en secouant le téléphone.
+ * Elle fournit également une fonctionnalité permettant de terminer l'activité en cas de secousse violente.
+ */
 public abstract class ShakeableActivity  extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
@@ -22,6 +27,11 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
     private float lastX, lastY, lastZ;
     private static final int SHAKE_THRESHOLD = 20;
 
+    /**
+     * Appelé lors de la création de l'activité. Initialise les capteurs et la caméra du téléphone.
+     *
+     * @param savedInstanceState l'état de l'instance précédente de l'activité, s'il existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,18 +46,29 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
         }
     }
 
+    /**
+     * Appelé lorsque l'activité devient visible à l'utilisateur. Enregistre l'écouteur de capteur.
+     */
     @Override
     protected void onResume() {
         super.onResume();
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
+    /**
+     * Appelé lorsque l'activité n'est plus visible à l'utilisateur. Désenregistre l'écouteur de capteur.
+     */
     @Override
     protected void onPause() {
         super.onPause();
         sensorManager.unregisterListener(this);
     }
 
+    /**
+     * Appelé lorsqu'un changement est détecté dans les capteurs. Contrôle si une secousse est détectée et active/désactive le flash de la caméra en conséquence. Termine l'activité en cas de secousse violente.
+     *
+     * @param event l'événement de capteur détecté.
+     */
     @Override
     public void onSensorChanged(SensorEvent event) {
         float x = event.values[0];
@@ -76,6 +97,11 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
         // do nothing
     }
 
+    /**
+     *  Allume le flash de la caméra si possible.
+     *  Si l'accès à la caméra est autorisé et qu'une caméra est disponible, cette méthode allume le flash.
+     *  Sinon, elle lance une exception CameraAccessException.
+     */
     private void turnOnFlash() {
         try {
             if (cameraId != null) {
@@ -87,6 +113,11 @@ public abstract class ShakeableActivity  extends AppCompatActivity implements Se
         }
     }
 
+    /**
+     * Éteint le flash de la caméra si possible.
+     * Si l'accès à la caméra est autorisé et qu'une caméra est disponible, cette méthode éteint le flash.
+     * Sinon, elle lance une exception CameraAccessException.
+     */
     private void turnOffFlash() {
         try {
             if (cameraId != null) {
