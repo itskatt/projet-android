@@ -72,11 +72,6 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
                 .load(imageUrl)
                 .into(image);
 
-        plus.setOnClickListener(view -> {
-            quantity.setText(quantButton(quantity.getText().toString(), minus, plus, Action.PLUS, position, phone));
-            updatePrice(price, phone, quantity.getText().toString());
-        });
-
         if (phones.getQuantity(phone) <= 1){
             minus.setEnabled(false);
         }else {
@@ -88,6 +83,12 @@ public class SmartPhoneShopcartAdapter extends BaseAdapter {
         }else {
             plus.setEnabled(true);
         }
+
+        plus.setOnClickListener(view -> {
+            quantity.setText(quantButton(quantity.getText().toString(), minus, plus, Action.PLUS, position, phone));
+            updatePrice(price, phone, quantity.getText().toString());
+        });
+
 
         minus.setOnClickListener(view -> {
             quantity.setText(quantButton(quantity.getText().toString(), minus, plus, Action.MINUS, position, phone));

@@ -72,13 +72,14 @@ public class ShopCartActivity extends AppCompatActivity implements ChangingPrice
     @Override
     public void onHTPriceUpdated(double newPrice) {
         newPrice = Math.round(newPrice*1000.0)/1000.0;
-        HTPrice.setText("Prix Hors Taxes \n" + newPrice);
+        HTPrice.setText("Tarif hors taxes : "+newPrice + " €");
+
     }
 
     @Override
     public void onTTCPriceUpdated(double newPrice) {
         newPrice = Math.round(newPrice*1000.0)/1000.0;
-        TTCPrice.setText("Prix Toutes Taxes Comprises \n" + newPrice);
+        TTCPrice.setText("Tarif TTC : "+newPrice + " €");
     }
 
     @Override
