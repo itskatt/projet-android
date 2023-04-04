@@ -1,5 +1,6 @@
 package fr.equipeR.teltechmobile;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,7 @@ public class EcranSmartphone extends ShakeableActivity {
      * @param savedInstanceState L'état de l'instance précédente de cette activité, s'il y en a un.
      */
     @Override
+    @SuppressLint("SetTextI18n")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecran_smartphone);

@@ -11,7 +11,7 @@
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Validation du panier..."
+        android:text="@string/cart_validation"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,7 @@
         android:id="@+id/validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paiement validé ! Vous allez recevoir votre commande d'ici peu..."
+        android:text="@string/payment_ok"
         android:textAlignment="center"
         android:lineHeight="27sp"
         android:textColor="@color/black"
@@ -51,7 +51,8 @@
         android:src="@drawable/logo_valide"
         app:layout_constraintBottom_toTopOf="@id/validation"
         app:layout_constraintLeft_toLeftOf="@id/validation"
-        app:layout_constraintRight_toRightOf="@id/validation" />
+        app:layout_constraintRight_toRightOf="@id/validation"
+        android:contentDescription="@string/payment_ok_logo_desc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

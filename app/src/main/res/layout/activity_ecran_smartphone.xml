@@ -42,7 +42,7 @@
                 android:id="@+id/phoneName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Iphone 13"
+                android:text="@string/placeholder_phone_name"
                 android:textColor="@color/black"
                 android:textFontWeight="700"
                 android:textSize="35sp" />
@@ -51,7 +51,7 @@
                 android:id="@+id/brandYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Apple - 2021"
+                android:text="@string/placeholder_brand_year"
                 android:textSize="20sp" />
 
             <ImageView
@@ -59,7 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_margin="25dp"
-                android:src="@drawable/placeholder" />
+                android:src="@drawable/placeholder"
+                android:contentDescription="@string/placeholder_phone_name" />
 
             <TextView
                 android:id="@+id/phoneDescription"
@@ -84,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Ce que d'autres en pensent ..."
+                android:text="@string/what_others_think"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -118,14 +119,14 @@
                     android:id="@+id/phonePriceHT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Prix HT : 864 €"
+                    android:text="@string/placeholder_price_no_tax"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/phonePriceTTC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Prix TTC : 1036.80 €"
+                    android:text="@string/placeholder_price_tax"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -134,7 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
-                    android:text="En stock : 800"
+                    android:text="@string/placeholer_stock"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="italic" />
@@ -147,7 +148,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
                 android:padding="20dp"
-                android:text="Ajouter au panier"
+                android:text="@string/add_to_cart"
                 android:textColor="@color/black"
                 app:backgroundTint="#ffffff"
                 app:cornerRadius="8dp"
