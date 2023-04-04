@@ -80,7 +80,7 @@ public class SmartphoneList {
      */
     public void fetchSmartphones(@NonNull Consumer<List<Smartphone>> onSmartphonesFetchedListener,
                                  @NonNull Consumer<VolleyError> onErrorListener) {
-        if (!isEmpty()) {
+        if (size() != 0) {
             smartphones.clear();
             smartphoneMap.clear();
         }
