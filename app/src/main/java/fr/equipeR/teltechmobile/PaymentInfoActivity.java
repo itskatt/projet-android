@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import fr.equipeR.teltechmobile.model.ShopCartPhones;
+
 /**
  *
  * Activité permettant de saisir les informations de paiement et de les vérifier avant de passer à
@@ -31,6 +34,8 @@ public class PaymentInfoActivity extends ShakeableActivity {
             if (checkIfInvalid(surname, "Le nom")) return;
             if (checkIfInvalid(firstname, "Le prénom")) return;
             if (checkIfInvalid(shippingAdress, "L'adresse de livraison")) return;
+
+            ShopCartPhones.getInstance().clear();
 
             Intent intent = new Intent(getApplicationContext(), EcranConfirmation.class);
             startActivity(intent);
